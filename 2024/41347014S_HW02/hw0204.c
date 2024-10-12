@@ -10,14 +10,14 @@ int main(){
     printf("Please enter the width (10-80):    ");
     scanf("%d", &width);
     while (width < 10 || width > 80){
-        printf("Please enter the width again (10-80): ");
+        printf("Input type is not valid, please enter the width again (10-80): ");
         scanf("%d", &width);
     }
 
     printf("Please enter the height (10-20):   ");
     scanf("%d", &height);
-    while (height < 10 || height > 80){
-        printf("Please enter the height again (10-20): ");
+    while (height < 10 || height > 20){
+        printf("Input type is not valid, please enter the height again (10-20): ");
         scanf("%d", &height);
     }
 

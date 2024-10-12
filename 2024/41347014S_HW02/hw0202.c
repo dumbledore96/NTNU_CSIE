@@ -1,16 +1,17 @@
 #include<stdio.h>
 #include<stdint.h>
+#include<stdlib.h>
 
 int main(){
+    int32_t result = 0;
     int32_t base = -1, state = 0;
-    do
-    {
+    do{
         base = -1;
         printf("Please enter DNA base: ");
-        int8_t result = scanf("%d", &base);
-        while(base < 0 || base > 4){
-            printf("Error, please enter DNA base again: ");
-            scanf("%d", &base);
+        result = scanf("%d", &base);
+        while(result == 0 || base < 0 || base > 4){
+            printf("Invalid value entered, please enter DNA base again: ");
+            result = scanf("%d", &base);
         }
 
         if(state == 0){
