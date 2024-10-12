@@ -14,10 +14,17 @@ int main(){
         scanf("%lf", &y);
         ux += x;
         uy += y;
+        ux2 += x*x;
+        uxy += x*y;
         n++;
     } while(x != -1);
     printf("Please enter the prediction year: ");
     scanf("%lf", &x);
     ux /= n;
     uy /= n;
+    int32_t m = (uxy - n*ux*uy) / (ux2 - n*ux*ux);
+    y = (x - ux) * m + uy;
+    printf("Temperature: %.1f\n", y);
+
+    return 0;
 }
