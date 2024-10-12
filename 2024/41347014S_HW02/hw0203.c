@@ -22,8 +22,9 @@ int main(){
     scanf("%lf", &x);
     ux /= n;
     uy /= n;
-    int32_t m = (uxy - n*ux*uy) / (ux2 - n*ux*ux);
+    double m = (uxy - n*ux*uy) / (ux2 - n*ux*ux);
     y = (x - ux) * m + uy;
+    // printf("m: %.1f\n", m);
     printf("Temperature: %.1f\n", y);
 
     return 0;
