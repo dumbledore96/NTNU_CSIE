@@ -1,3 +1,6 @@
 *.zip
-hw*
-!.c
+*
+!*/
+!*.*
+!*Makefile
+!*makefile
