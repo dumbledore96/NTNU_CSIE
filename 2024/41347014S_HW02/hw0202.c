@@ -1,18 +1,18 @@
 #include<stdio.h>
 #include<stdint.h>
-#include<stdlib.h>
 
 int main(){
     int32_t result = 0;
     int32_t base = -1, state = 0;
-    do{
-        base = -1;
+    while(1){
         printf("Please enter DNA base: ");
-        result = scanf("%d", &base);
-        while(result == 0 || base < 0 || base > 4){
-            printf("Invalid value entered, please enter DNA base again: ");
-            result = scanf("%d", &base);
+        while(scanf("%d",&base) == 0 || base < 0 || base > 4){
+            uint8_t temp;
+            scanf("%c",&temp);
+            printf("Error, please enter DNA base again: ");
         }
+            
+        if(base == 0) break;
 
         if(state == 0){
             if(base == 1 || base == 3){
@@ -81,7 +81,7 @@ int main(){
                 state = 7;
             }
         }
-    } while(base != 0);
+    }
     
     if(state == 7){
         printf("The state is in S7, the sequence satisfies the pattern.\n");

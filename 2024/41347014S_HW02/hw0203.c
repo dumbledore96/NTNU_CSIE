@@ -4,28 +4,38 @@
 int main(){
     double ux = 0, uy = 0, x = 0, y = 0, uxy = 0, ux2 = 0;
     int32_t n = 0;
-    do{
+    uint8_t temp;
+    while(1){
         printf("Please enter the year: ");
-        scanf("%lf", &x);
+        while(scanf("%lf", &x) != 1){
+            scanf("%c",&temp);
+            printf("Error, please enter the year again: ");
+        }
         if(x == -1){
             break;
         }
         printf("Temperature: ");
-        scanf("%lf", &y);
+        while(scanf("%lf", &y) != 1){
+            scanf("%c",&temp);
+            printf("Error, please enter temperature again: ");
+        }
         ux += x;
         uy += y;
         ux2 += x*x;
         uxy += x*y;
         n++;
-    } while(x != -1);
+    }
     printf("Please enter the prediction year: ");
-    scanf("%lf", &x);
+    while(scanf("%lf", &x) != 1){
+        scanf("%c",&temp);
+        printf("Error, please enter the prediction year again: ");
+    }
     ux /= n;
     uy /= n;
     double m = (uxy - n*ux*uy) / (ux2 - n*ux*ux);
     y = (x - ux) * m + uy;
     // printf("m: %.1f\n", m);
-    printf("Temperature: %.1f\n", y);
+    printf("Temperature: %f\n", y);
 
     return 0;
 }
