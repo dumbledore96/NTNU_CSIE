@@ -36,13 +36,13 @@ int main(){
 
     int32_t panel_width = (width - col + 1) / col;
     int32_t panel_height = (height - row - 1) / (row + 1) - 1;
-    printf("%dx%d\n", panel_width, panel_height);
+    // printf("%dx%d\n", panel_width, panel_height);
 
-    int32_t job_row = 0, job_col = 0;
+    int32_t job_row = -1, job_col = -1;
     if(job > 0){
         job_row = (job - 1)/col;
         job_col = (job - 1)%col;
-        printf("%d,%d\n", job_row, job_col);
+        // printf("%d,%d\n", job_row, job_col);
     }
 
     int32_t fastfetch_size = 0;
@@ -71,14 +71,14 @@ int main(){
             else printf("\u2502");
         }
 
-        for(int32_t ih = 0, fast_empty = 0-fastfetch_size/3*2 ; ih < panel_height ; ih++, fast_empty++){
+        for(int32_t ih = 0, fast_empty = 0-fastfetch_size+fastfetch_size/3 ; ih < panel_height ; ih++, fast_empty++){
             for(int32_t j = 0 ; j < col ; j++){
                 if(job == 0 || (job_row == i && job_col == j)){
                     int32_t jw = 0;
                     for(jw = 0 ; jw < fastfetch_size - ih -1 ; jw++){
                         printf(" ");
                     }
-                    printf("/");
+                    printf("\033[38;2;23;147;209m/");
                     jw++;
                     if(fast_empty>=0){
                         for(; jw < fastfetch_size - fast_empty -1 ; jw++){
@@ -92,15 +92,10 @@ int main(){
                         printf("\\");
                         jw++;
                     }
-                    else{
-                        for(; jw < fastfetch_size + ih ; jw++){
-                            printf("o");
-                        }
-                    }
                     for(; jw < fastfetch_size + ih ; jw++){
                         printf("o");
                     }
-                    printf("\\");
+                    printf("\\\033[0m");
                     jw++;
                     for(; jw < panel_width ; jw++){
                         printf(" ");
@@ -143,14 +138,14 @@ int main(){
         else printf("\u2502");
     }
 
-    for(int32_t ih = 0, fast_empty = 0-fastfetch_size/3*2 ; ih < panel_height ; ih++, fast_empty++){
+    for(int32_t ih = 0, fast_empty = 0-fastfetch_size+fastfetch_size/3 ; ih < panel_height ; ih++, fast_empty++){
         for(int32_t j = 0 ; j < col ; j++){
             if(job == 0 || (job_row == row - 1 && job_col == j)){
                 int32_t jw = 0;
                 for(jw = 0 ; jw < fastfetch_size - ih -1 ; jw++){
                     printf(" ");
                 }
-                printf("/");
+                printf("\033[38;2;23;147;209m/");
                 jw++;
                 if(fast_empty>=0){
                     for(; jw < fastfetch_size - fast_empty -1 ; jw++){
@@ -164,15 +159,10 @@ int main(){
                     printf("\\");
                     jw++;
                 }
-                else{
-                    for(; jw < fastfetch_size + ih ; jw++){
-                        printf("o");
-                    }
-                }
                 for(; jw < fastfetch_size + ih ; jw++){
                     printf("o");
                 }
-                printf("\\");
+                printf("\\\033[0m");
                 jw++;
                 for(; jw < panel_width ; jw++){
                     printf(" ");
@@ -215,14 +205,14 @@ int main(){
         else printf("\u2502");
     }
 
-    for(int32_t ih = 0, fast_empty = 0-fastfetch_size/3*2 ; ih < panel_height ; ih++, fast_empty++){
+    for(int32_t ih = 0, fast_empty = 0-fastfetch_size+fastfetch_size/3 ; ih < panel_height ; ih++, fast_empty++){
         for(int32_t j = 0 ; j < last_row ; j++){
             if(job == 0 || (job_row == row && job_col == j)){
                 int32_t jw = 0;
                 for(jw = 0 ; jw < fastfetch_size - ih -1 ; jw++){
                     printf(" ");
                 }
-                printf("/");
+                printf("\033[38;2;23;147;209m/");
                 jw++;
                 if(fast_empty>=0){
                     for(; jw < fastfetch_size - fast_empty -1 ; jw++){
@@ -236,15 +226,10 @@ int main(){
                     printf("\\");
                     jw++;
                 }
-                else{
-                    for(; jw < fastfetch_size + ih ; jw++){
-                        printf("o");
-                    }
-                }
                 for(; jw < fastfetch_size + ih ; jw++){
                     printf("o");
                 }
-                printf("\\");
+                printf("\\\033[0m");
                 jw++;
                 for(; jw < panel_width ; jw++){
                     printf(" ");
