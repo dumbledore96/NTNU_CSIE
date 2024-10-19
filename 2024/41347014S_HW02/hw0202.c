@@ -92,5 +92,3 @@ int main(){
     
     return 0;
 }
-
-//bug: when input is not an int, it will be repeat infinite

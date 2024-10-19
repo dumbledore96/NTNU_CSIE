@@ -1,8 +1,6 @@
 #include<stdio.h>
 #include<stdint.h>
 
-int arch_size_f(int, int);
-
 int main(){
     int32_t width = 0, height = 0;
     int32_t panel_number = 0, job = 0;
