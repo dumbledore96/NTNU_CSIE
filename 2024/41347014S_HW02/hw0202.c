@@ -6,10 +6,10 @@ int main(){
     int32_t base = -1, state = 0;
     while(1){
         printf("Please enter DNA base: ");
-        while(scanf("%d",&base) == 0 || base < 0 || base > 4){
-            uint8_t temp;
-            scanf("%c",&temp);
-            printf("Error, please enter DNA base again: ");
+        if(scanf("%d",&base) == 0 || base < 0 || base > 4){
+            printf("Invaild input\n");
+            state = 0;
+            continue;
         }
             
         if(base == 0) break;
