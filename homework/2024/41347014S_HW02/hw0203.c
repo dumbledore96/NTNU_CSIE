@@ -4,14 +4,17 @@
 int main(){
     double ux = 0, uy = 0, x = 0, y = 0, uxy = 0, ux2 = 0;
     int64_t n = 0;
-    uint8_t temp;
     while(1){
         printf("Please enter the year: ");
         if(scanf("%lf", &x) != 1){
-            printf("Error");
+            printf("Error\n");
             return 0;
         }
         if(x == -1){
+            if(n<=1){
+                printf("Error\n");
+                return 0;
+            }
             break;
         }
         printf("Temperature: ");
@@ -27,7 +30,7 @@ int main(){
     }
     printf("Please enter the prediction year: ");
     if(scanf("%lf", &x) != 1){
-        printf("Error");
+        printf("Error\n");
         return 0;
     }
     ux /= n;
