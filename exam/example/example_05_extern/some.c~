@@ -1,3 +1,0 @@
-#include <stdint.h>
-
-static int32_t  flag = 1000;
